@@ -27,6 +27,11 @@ public class ExcelImporter
     public List<string[]> importCSV(string fileName)
     {
         TextAsset csvFile      = Resources.Load("MapData/" + fileName) as TextAsset;
+        if (csvFile == null) {
+            Debug.logger.Log(LogType.Error, "エラー", fileName + " is not found");
+            return null;
+        }
+
         StringReader reader    = new StringReader(csvFile.text);
 
         List<string[]> csvData = new List<string[]>();
