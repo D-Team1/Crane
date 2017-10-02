@@ -39,8 +39,8 @@ public class StageCreater : MonoBehaviour
     void createStage(List<string[]> stageData)
     {
         createPos = Vector3.zero;
-        float xMoveValue = stageBlock[0].GetComponent<Renderer>().bounds.size.x;　// 生成位置の移動量
-        float yMoveValue = stageBlock[0].GetComponent<Renderer>().bounds.size.y;  // 生成位置の移動量
+        float xMoveValue = stageBlock[0].GetComponent<Renderer>().bounds.size.x;　// 生成位置の移動量X
+        float yMoveValue = stageBlock[0].GetComponent<Renderer>().bounds.size.y;  // 生成位置の移動量Y
 
         for (int i = stageData.Count - 1; i >= 0; --i) {
             for (int j = 0; j < stageData[i].Length; ++j) {
