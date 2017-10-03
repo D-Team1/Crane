@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     /// 唯一のインスタンス
     /// </summary>
     static GameManager instance;
-    public GameManager Instance {
+    public static GameManager Instance {
         get {
             if (instance == null) {
                 instance = new GameManager();

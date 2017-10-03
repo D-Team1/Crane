@@ -30,7 +30,6 @@ public class BlockControl : MonoBehaviour {
         {
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             rb.isKinematic = false;
-
             GetComponent<Rigidbody>().useGravity = true;
             m_Child.GetComponent<Rigidbody>().useGravity = true;
             m_Time += Time.deltaTime;
