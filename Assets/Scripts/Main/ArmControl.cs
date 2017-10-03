@@ -22,10 +22,23 @@ public class ArmControl : MonoBehaviour {
         rayPos.y -= 3.2f;
         Vector3 rayDir = new Vector3(1.0f,0.0f,0.0f);
         Debug.DrawRay(rayPos, rayDir * 0.5f);
+
         Ray rightRay = new Ray(rayPos, rayDir);
         rayDir = new Vector3(-1.0f, 0.0f, 0.0f);
         Ray leftRay = new Ray(rayPos, rayDir);
         Debug.DrawRay(rayPos, rayDir * 0.5f);
+
+        rayDir = new Vector3(0.0f, -1.0f, 0.0f);
+        rayPos.y += 0.8f;
+        rayPos.x += 0.4f;
+        Ray leftDownRay = new Ray(rayPos, rayDir);
+        Debug.DrawRay(rayPos, rayDir * 0.7f);
+
+        rayPos.x = transform.position.x;
+        rayPos.x -= 0.4f;
+        Ray rightDownRay = new Ray(rayPos, rayDir);
+        Debug.DrawRay(rayPos, rayDir * 0.7f);
+
         RaycastHit hit;
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -51,9 +64,18 @@ public class ArmControl : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow) && m_IsMove)
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
+            if (!Physics.Raycast(leftDownRay, out hit, 0.7f) &&
+                !Physics.Raycast(rightDownRay, out hit, 0.7f) && 
+                m_IsCaught)
+            {
+                transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
+            }
+            else if (!m_IsCaught)
+            {
+                transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
+            }
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
