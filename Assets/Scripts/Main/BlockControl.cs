@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour {
+public class BlockControl : MonoBehaviour {
 
     private bool m_IsCaught; // 掴まれているか
     private float m_Time;
+    private bool m_IsMove;
     private GameObject m_Child;
 
 	// Use this for initialization
@@ -13,6 +14,7 @@ public class Test : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0,0,0);
         m_IsCaught = false;
+        m_Child = transform.FindChild("Cube").gameObject;
         m_Time = 0f;
     }
 	
@@ -27,15 +29,16 @@ public class Test : MonoBehaviour {
 
         if (!m_IsCaught)
         {
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+
             GetComponent<Rigidbody>().useGravity = true;
-            m_Child = transform.FindChild("Cube").gameObject;
             m_Child.GetComponent<Rigidbody>().useGravity = true;
             m_Time += Time.deltaTime;
         }
         else
         {
             GetComponent<Rigidbody>().useGravity = false;
-            m_Child = transform.FindChild("Cube").gameObject;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
 
@@ -54,9 +57,14 @@ public class Test : MonoBehaviour {
             m_IsCaught = true;
             gameObject.transform.position = other.transform.position;
 
-            m_Child = transform.FindChild("Cube").gameObject;
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
     }
 }
