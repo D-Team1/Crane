@@ -14,7 +14,11 @@ public class BlockControl : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0,0,0);
         m_IsCaught = false;
+<<<<<<< HEAD
         m_Child = transform.Find("Cube").gameObject;
+=======
+        m_Child = transform.FindChild("Cube").gameObject;
+>>>>>>> origin/Arm
         m_Time = 0f;
     }
 	
