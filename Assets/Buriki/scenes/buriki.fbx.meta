@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: 4f65fcb9e64a99246af66730d8624f61
+timeCreated: 1507019022
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm
+    100002: arm1
+    100004: body
+    100006: body 1
+    100008: buriki
+    100010: //RootNode
+    100012: foot
+    100014: foot1
+    100016: head
+    100018: head 1
+    100020: head 2
+    100022: L_arm
+    100024: L_arm 1
+    100026: L_arm1
+    100028: L_eye
+    100030: L_foot
+    100032: L_foot 1
+    100034: L_foot1
+    100036: L_head
+    100038: main
+    100040: mouth
+    100042: mouth 1
+    100044: neck
+    100046: neck 1
+    100048: neck 2
+    100050: pCube6
+    100052: pCylinder1
+    100054: pCylinder10
+    100056: pCylinder11
+    100058: pCylinder2
+    100060: pCylinder6
+    100062: pCylinder7
+    100064: pCylinder8
+    100066: pCylinder9
+    100068: pPipe6
+    100070: pSphere1
+    100072: pSphere2
+    100074: pSphere3
+    100076: pSphere4
+    100078: R_arm
+    100080: R_arm 1
+    100082: R_arm1
+    100084: R_eye
+    100086: R_foot
+    100088: R_foot 1
+    100090: R_foot1
+    100092: R_head
+    100094: shoes
+    100096: shoes1
+    100098: shoulder
+    100100: shoulder1
+    100102: zenmai
+    400000: arm
+    400002: arm1
+    400004: body
+    400006: body 1
+    400008: //RootNode
+    400010: buriki
+    400012: foot
+    400014: foot1
+    400016: head
+    400018: head 1
+    400020: head 2
+    400022: L_arm
+    400024: L_arm 1
+    400026: L_arm1
+    400028: L_eye
+    400030: L_foot
+    400032: L_foot 1
+    400034: L_foot1
+    400036: L_head
+    400038: main
+    400040: mouth
+    400042: mouth 1
+    400044: neck
+    400046: neck 1
+    400048: neck 2
+    400050: pCube6
+    400052: pCylinder1
+    400054: pCylinder10
+    400056: pCylinder11
+    400058: pCylinder2
+    400060: pCylinder6
+    400062: pCylinder7
+    400064: pCylinder8
+    400066: pCylinder9
+    400068: pPipe6
+    400070: pSphere1
+    400072: pSphere2
+    400074: pSphere3
+    400076: pSphere4
+    400078: R_arm
+    400080: R_arm 1
+    400082: R_arm1
+    400084: R_eye
+    400086: R_foot
+    400088: R_foot 1
+    400090: R_foot1
+    400092: R_head
+    400094: shoes
+    400096: shoes1
+    400098: shoulder
+    400100: shoulder1
+    400102: zenmai
+    4300000: pSphere4
+    4300002: pCylinder10
+    4300004: pCylinder11
+    4300006: pCylinder7
+    4300008: pSphere3
+    4300010: pCylinder8
+    4300012: pCylinder9
+    4300014: pCylinder6
+    4300016: pSphere2
+    4300018: pCylinder2
+    4300020: pCylinder1
+    4300022: pSphere1
+    4300024: mouth
+    4300026: head
+    4300028: neck
+    4300030: body
+    4300032: arm
+    4300034: shoulder
+    4300036: arm1
+    4300038: shoulder1
+    4300040: foot
+    4300042: shoes
+    4300044: foot1
+    4300046: shoes1
+    4300048: pCube6
+    4300050: pPipe6
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: arm
+    13700002: arm1
+    13700004: body 1
+    13700006: foot
+    13700008: foot1
+    13700010: head 1
+    13700012: mouth 1
+    13700014: neck 2
+    13700016: pCube6
+    13700018: pCylinder1
+    13700020: pCylinder10
+    13700022: pCylinder11
+    13700024: pCylinder2
+    13700026: pCylinder6
+    13700028: pCylinder7
+    13700030: pCylinder8
+    13700032: pCylinder9
+    13700034: pPipe6
+    13700036: pSphere1
+    13700038: pSphere2
+    13700040: pSphere3
+    13700042: pSphere4
+    13700044: shoes
+    13700046: shoes1
+    13700048: shoulder
+    13700050: shoulder1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

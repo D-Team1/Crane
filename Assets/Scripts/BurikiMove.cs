@@ -6,7 +6,7 @@ public class BurikiMove : MonoBehaviour
 {
 
     Rigidbody rd;
-    public int MoveSpeed = 2;
+    public float MoveSpeed = 0.5f;
 
     // Use this for initialization
     void Start()
@@ -20,9 +20,16 @@ public class BurikiMove : MonoBehaviour
         //velocity::速度
         //x方向へMoveSpeed分移動させる
         rd.velocity = new Vector2(MoveSpeed, rd.velocity.y);
+        
+    }
+    void OnCollisionEnter(Collision clear)
+    {
+        if (clear.gameObject.tag == "Goal")
+        {
+            GameManager.Instance.gameClear();
+        }
     }
 }
-
 
    
 
