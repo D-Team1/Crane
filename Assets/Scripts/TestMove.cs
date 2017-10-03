@@ -21,7 +21,9 @@ public class TestMove : MonoBehaviour {
         {
             transform.position += new Vector3(+0.05f, 0f, 0f); //形状位置を更新
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+
+        if (Input.GetKey(KeyCode.DownArrow) &&
+            gameObject.transform.position.y > 3.5f)
         {
             transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
         }
