@@ -7,8 +7,10 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+    /// <summary>
+    /// 唯一のインスタンス
+    /// </summary>
     static GameManager instance;
-
     public GameManager Instance {
         get {
             if (instance == null) {
@@ -19,11 +21,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private static int stageNum = 0;
+    public static int StageNum {
+        get {
+            return stageNum;
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)) {
             gameClear();
         }
+    }
+
+    public static void changeStage(int _stageNum)
+    {
+        stageNum = _stageNum;
+        SceneManager.changeScene(SceneNames.Main);
     }
 
     /// <summary>

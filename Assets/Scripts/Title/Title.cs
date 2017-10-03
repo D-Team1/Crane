@@ -10,7 +10,7 @@ public class Title : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)) {
-            SceneManager.changeScene(SceneNames.Main);
+            SceneManager.changeScene(SceneNames.StageSelect);
         }
     }
 }
