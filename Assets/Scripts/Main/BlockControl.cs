@@ -6,7 +6,6 @@ public class BlockControl : MonoBehaviour {
 
     private bool m_IsCaught; // 掴まれているか
     private float m_Time;
-    private bool m_IsMove;
     private GameObject m_Child;
 
 	// Use this for initialization
@@ -44,6 +43,7 @@ public class BlockControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Space))
         {
+            ArmControl.m_IsCaught = false;
             m_IsCaught = false;
             m_Time = 0;
         }
@@ -54,16 +54,20 @@ public class BlockControl : MonoBehaviour {
         if(other.tag == "Claw" &&
             m_Time > 0.5f)
         {
+            ArmControl.m_IsCaught = true;
             m_IsCaught = true;
             gameObject.transform.position = other.transform.position;
 
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
     }
 
     void OnCollisionStay(Collision collision)
     {
+        Debug.Log("Test");
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.isKinematic = true;
     }
