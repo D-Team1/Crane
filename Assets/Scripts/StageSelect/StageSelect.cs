@@ -25,6 +25,15 @@ public class StageSelect : MonoBehaviour
     /// </summary>
     const int NUMBER_OF_STAGES = 15;
 
+    /// <summary>
+    /// ステージのアンロック
+    /// </summary>
+    static bool[] unlockStages = {
+        true , false, false, false, false,
+        false, false, false, false, false,
+        false, false, false, false, false
+    };
+
     void Start()
     {
         es = GameObject.Find("EventSystem")as GameObject;
@@ -40,11 +49,13 @@ public class StageSelect : MonoBehaviour
             if (i == 0) {
                 es.GetComponent<EventSystem>().firstSelectedGameObject = obj;
             }
+                        
+            obj.GetComponent<Button>().interactable = unlockStages[i];
         }
     }
 
-    void Update()
+    public static void unlockStage(int stageIndex)
     {
-
+        unlockStages[stageIndex] = true;
     }
 }

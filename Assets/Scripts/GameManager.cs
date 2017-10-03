@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public void gameClear()
     {
         //TODO: クリア時の処理
+        StageSelect.unlockStage(stageNum);
         SceneManager.changeScene(SceneNames.Result);
     }
 
