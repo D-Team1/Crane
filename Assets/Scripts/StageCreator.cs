@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// ステージ生成クラス
 /// </summary>
-public class StageCreater : MonoBehaviour
+public class StageCreator : MonoBehaviour
 {
     /// <summary>
     /// ステージの情報を記述したcsvのファイル名
