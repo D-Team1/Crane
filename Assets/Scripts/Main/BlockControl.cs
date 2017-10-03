@@ -20,7 +20,7 @@ public class BlockControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(m_IsCaught)
+        if (m_IsCaught)
         {
             GameObject ClawObject = GameObject.FindGameObjectWithTag("Claw");
             gameObject.transform.position = ClawObject.transform.position;
@@ -61,13 +61,12 @@ public class BlockControl : MonoBehaviour {
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
     }
 
     void OnCollisionStay(Collision collision)
     {
-        Debug.Log("Test");
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.isKinematic = true;
     }

@@ -19,7 +19,7 @@ public class ArmControl : MonoBehaviour {
 	void Update ()
     {
         Vector3 rayPos = transform.position;
-        rayPos.y -= 3.4f;
+        rayPos.y -= 3.2f;
         Vector3 rayDir = new Vector3(1.0f,0.0f,0.0f);
         Debug.DrawRay(rayPos, rayDir * 0.5f);
         Ray rightRay = new Ray(rayPos, rayDir);
@@ -65,7 +65,6 @@ public class ArmControl : MonoBehaviour {
     {
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         m_IsMove = false;
-        rb.isKinematic = true;
     }
 
     void OnCollisionStay(Collision col)
