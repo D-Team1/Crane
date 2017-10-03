@@ -28,14 +28,14 @@ public class Test : MonoBehaviour {
         if (!m_IsCaught)
         {
             GetComponent<Rigidbody>().useGravity = true;
-            m_Child = transform.FindChild("Cube").gameObject;
+            m_Child = transform.Find("Cube").gameObject;
             m_Child.GetComponent<Rigidbody>().useGravity = true;
             m_Time += Time.deltaTime;
         }
         else
         {
             GetComponent<Rigidbody>().useGravity = false;
-            m_Child = transform.FindChild("Cube").gameObject;
+            m_Child = transform.Find("Cube").gameObject;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
 
@@ -54,7 +54,7 @@ public class Test : MonoBehaviour {
             m_IsCaught = true;
             gameObject.transform.position = other.transform.position;
 
-            m_Child = transform.FindChild("Cube").gameObject;
+            m_Child = transform.Find("Cube").gameObject;
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
