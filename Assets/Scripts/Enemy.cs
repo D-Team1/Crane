@@ -9,16 +9,26 @@ public class Enemy : MonoBehaviour
 {
     float speed = 0.5f;
 
+    Ray ray;
+
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
     }
 
-    /// <summary>
-    /// 敵の死亡時に呼び出す
-    /// </summary>
-    void destroy()
+    void OnCollisionEnter(Collision collision)
     {
-        //TODO: 死亡時の処理
+        // 当たった相手がBlockなら
+        if (collision.gameObject.tag == "Block") {
+            // 上部に接触したか
+            if (Physics.Raycast(transform.position, Vector3.up, 10)) {
+                Destroy(gameObject);
+            }
+        }
     }
 }
