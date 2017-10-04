@@ -22,6 +22,7 @@ public class ArmControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (GameManager.Instance.IsDuringPose) return;
         Vector3 rayPos = transform.position;
         rayPos.y -= 0.6f;
         Vector3 rayDir = new Vector3(1.0f,0.0f,0.0f);
@@ -119,8 +120,8 @@ public class ArmControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (!Physics.Raycast(CylinderLeftRay, out hit, 0.15f) ||
-              !Physics.Raycast(CylinderUpLeftRay, out hit, 0.15f))
+            //if (!Physics.Raycast(CylinderLeftRay, out hit, 0.15f) ||
+            //  !Physics.Raycast(CylinderUpLeftRay, out hit, 0.15f))
             {
                 if (!Physics.Raycast(leftRay, out hit, 0.5f) && m_IsCaught)
                 {
@@ -134,8 +135,8 @@ public class ArmControl : MonoBehaviour {
         }
         else if(Input.GetKey(KeyCode.RightArrow))
         {
-            if(!Physics.Raycast(CylinderRightRay, out hit, 0.15f) ||
-              !Physics.Raycast(CylinderUpRightRay, out hit, 0.15f))
+            //if(!Physics.Raycast(CylinderRightRay, out hit, 0.15f) ||
+            //  !Physics.Raycast(CylinderUpRightRay, out hit, 0.15f))
             {
                 if (!Physics.Raycast(rightRay, out hit, 0.5f) && m_IsCaught)
                 {
