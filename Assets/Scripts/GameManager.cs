@@ -105,7 +105,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameClear()
     {
-        //TODO: クリア時の処理
         StageSelect.unlockStage(stageNum);
         SceneManager.changeScene(SceneNames.Result);
     }
@@ -115,7 +114,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameOver()
     {
-        //TODO: ゲームオーバーの際の処理
-        SceneManager.changeScene(SceneNames.Result);
+        //TODO: ゲームオーバーの際の表示
+        SceneManager.changeScene(SceneNames.StageSelect);
     }
 }
