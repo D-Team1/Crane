@@ -13,19 +13,13 @@ public class BlockControl : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0,0,0);
         m_IsCaught = false;
-        m_Child = transform.FindChild("Cube").gameObject;
+        m_Child = transform.Find("Cube").gameObject;
         m_Time = 0f;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (m_IsCaught)
-        {
-            GameObject ClawObject = GameObject.FindGameObjectWithTag("Claw");
-            gameObject.transform.position = ClawObject.transform.position;
-        }
-
         if (!m_IsCaught)
         {
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
@@ -36,22 +30,27 @@ public class BlockControl : MonoBehaviour {
         }
         else
         {
+            GameObject ClawObject = GameObject.FindGameObjectWithTag("Claw");
+            gameObject.transform.position = ClawObject.transform.position;
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (!ArmControl.m_CaughtEnable)
         {
             ArmControl.m_IsCaught = false;
             m_IsCaught = false;
+            GetComponent<Rigidbody>().useGravity = true;
+            m_Child.GetComponent<Rigidbody>().useGravity = true;
             m_Time = 0;
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if(other.tag == "Claw" &&
-            m_Time > 0.5f)
+            m_Time > 0.5f &&
+            ArmControl.m_CaughtEnable)
         {
             ArmControl.m_IsCaught = true;
             m_IsCaught = true;
@@ -59,9 +58,9 @@ public class BlockControl : MonoBehaviour {
 
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
         }
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-        rb.isKinematic = true;
     }
 
     void OnCollisionStay(Collision collision)
