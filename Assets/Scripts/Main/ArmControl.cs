@@ -62,45 +62,52 @@ public class ArmControl : MonoBehaviour {
 
         RaycastHit hit;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        if(Input.GetKey(KeyCode.Space))
         {
-            m_IsReverse = !m_IsReverse;
-            if(m_IsReverse)
-            {
-                var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-                var animationHash = stateInfo.shortNameHash;
-                GetComponent<Animator>().Play(animationHash, 0, 0);
-                GetComponent<Animator>().SetFloat("Speed", 2);
-            }
-            else
-            {
-                var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-                var animationHash = stateInfo.shortNameHash;
-                GetComponent<Animator>().Play(animationHash, 0, 1.4f);
-                GetComponent<Animator>().SetFloat("Speed", -2);
-            }
+            Debug.Log(stateInfo.normalizedTime);
+            //var animationHash = stateInfo.shortNameHash;
+            //GetComponent<Animator>().Play(animationHash, 0, 0);
+            GetComponent<Animator>().SetFloat("Speed", 2);
+        }
+        else
+        {
+            stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+            //var animationHash = stateInfo.shortNameHash;
+            //GetComponent<Animator>().Play(animationHash, 0, 1.4f);
+            GetComponent<Animator>().SetFloat("Speed", -2);
         }
 
-
+        stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.normalizedTime < 0)
         {
-            var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-            if(stateInfo.normalizedTime <= 1.4f && stateInfo.normalizedTime >= 0.5f)
-            {
-                m_CaughtEnable = true;
-            }
-            else if(stateInfo.normalizedTime <= 0.9f)
-            {
-                m_CaughtEnable = false;
-            }
-            else if(m_IsCaught)
-            {
-                m_CaughtEnable = true;
-            }
-            else
-            {
-                m_CaughtEnable = false;
-            }
+            //Debug.Log("1");
+            var animationHash = stateInfo.shortNameHash;
+            GetComponent<Animator>().Play(animationHash, 0, 0);
+        }
+        else if(stateInfo.normalizedTime > 1.4f)
+        {
+            //Debug.Log("2");
+            var animationHash = stateInfo.shortNameHash;
+            GetComponent<Animator>().Play(animationHash, 0, 1.4f);
+        }
 
+        stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        if(stateInfo.normalizedTime <= 1.4f && stateInfo.normalizedTime >= 0.5f)
+        {
+            m_CaughtEnable = true;
+        }
+        else if(stateInfo.normalizedTime <= 0.9f)
+        {
+            m_CaughtEnable = false;
+        }
+        else if(m_IsCaught)
+        {
+            m_CaughtEnable = true;
+        }
+        else
+        {
+            m_CaughtEnable = false;
         }
 
         // 自分にめり込んでいる
