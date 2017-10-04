@@ -61,6 +61,17 @@ public class StageSelect : MonoBehaviour
         });
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D)) {
+            for (int i = 0; i < NUMBER_OF_STAGES; ++i) {
+                unlockStages[i] = true;
+            }
+
+            SceneManager.changeScene(SceneNames.StageSelect);
+        }
+    }
+
     public static void unlockStage(int stageIndex)
     {
         unlockStages[stageIndex] = true;
