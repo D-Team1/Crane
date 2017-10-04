@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
     // アームの動作用
     public static bool moveArm()
     {
-        return Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Return);
+        return Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Space);
     }
     // ポーズ
     public static bool pose()
