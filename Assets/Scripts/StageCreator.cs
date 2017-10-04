@@ -27,7 +27,7 @@ public class StageCreator : MonoBehaviour
     void Start()
     {
         // csvの読み込み
-        var stageData = ExcelImporter.Instance.importCSV(stageNameList[GameManager.StageNum]);
+        var stageData = ExcelImporter.Instance.importCSV(stageNameList[GameManager.StageNum - 1]);
         // ステージの生成
         createStage(stageData);
     }
