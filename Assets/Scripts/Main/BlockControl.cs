@@ -13,7 +13,7 @@ public class BlockControl : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0,0,0);
         m_IsCaught = false;
-        m_Child = transform.Find("Cube").gameObject;
+        m_Child = transform.Find("TestBlock").gameObject;
         m_Time = 0f;
     }
 	
@@ -22,7 +22,7 @@ public class BlockControl : MonoBehaviour {
     {
         if (!m_IsCaught)
         {
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            Rigidbody rb = m_Child.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             GetComponent<Rigidbody>().useGravity = true;
             m_Child.GetComponent<Rigidbody>().useGravity = true;
@@ -31,7 +31,8 @@ public class BlockControl : MonoBehaviour {
         else
         {
             GameObject ClawObject = GameObject.FindGameObjectWithTag("Claw");
-            gameObject.transform.position = ClawObject.transform.position;
+            //gameObject.transform.position = ClawObject.transform.position;
+            m_Child.transform.position = ClawObject.transform.position;
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
         }
@@ -54,19 +55,19 @@ public class BlockControl : MonoBehaviour {
         {
             ArmControl.m_IsCaught = true;
             m_IsCaught = true;
-            gameObject.transform.position = other.transform.position;
-            ArmControl.m_CaughtTag = gameObject.tag;
+            m_Child.transform.position = other.transform.position;
+            ArmControl.m_CaughtTag = m_Child.tag;
 
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            Rigidbody rb = m_Child.GetComponent<Rigidbody>();
             rb.isKinematic = true;
         }
     }
 
     void OnCollisionStay(Collision collision)
     {
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        Rigidbody rb = m_Child.GetComponent<Rigidbody>();
         rb.isKinematic = true;
     }
 }
