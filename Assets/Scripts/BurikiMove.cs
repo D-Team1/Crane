@@ -38,10 +38,18 @@ public class BurikiMove : MonoBehaviour
             GameManager.Instance.gameClear();
         }
         else if (clear.gameObject.tag == "GameOver")
-
         {
             Debug.Log("gameover");
             GameManager.Instance.gameOver();
+        }
+
+        if (clear.gameObject.tag == "BuildingBlocks")
+        {
+            if (Physics.Raycast(transform.position, Vector3.up, 10))
+            {
+                GameManager.Instance.gameOver();
+                Destroy(gameObject);
+            }
         }
     }
 }

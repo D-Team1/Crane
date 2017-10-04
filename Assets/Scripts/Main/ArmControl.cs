@@ -37,8 +37,12 @@ public class ArmControl : MonoBehaviour {
         {
             m_HpBar.value -= 10.0f / 60.0f;
         }
-        
-        if(m_HpBar.value <= 0)
+        else if(m_CaughtTag == "Player")
+        {
+            m_HpBar.value -= 25.0f / 60.0f;
+        }
+
+        if (m_HpBar.value <= 0)
         {
             GameManager.Instance.gameOver();
         }

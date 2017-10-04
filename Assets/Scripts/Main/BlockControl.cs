@@ -56,7 +56,7 @@ public class BlockControl : MonoBehaviour {
             ArmControl.m_IsCaught = true;
             m_IsCaught = true;
             m_Child.transform.position = other.transform.position;
-            ArmControl.m_CaughtTag = m_Child.tag;
+            ArmControl.m_CaughtTag = gameObject.tag;
 
             GetComponent<Rigidbody>().useGravity = false;
             m_Child.GetComponent<Rigidbody>().useGravity = false;
