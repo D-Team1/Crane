@@ -83,7 +83,7 @@ public class ArmControl : MonoBehaviour {
         RaycastHit hit;
 
         var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-        if(Input.GetKey(KeyCode.Space))
+        if(InputManager.moveArm())
         {
             Debug.Log(stateInfo.normalizedTime);
             //var animationHash = stateInfo.shortNameHash;
@@ -139,7 +139,7 @@ public class ArmControl : MonoBehaviour {
         //    //Debug.Log("test");
         //}
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (InputManager.left())
         {
             if (!Physics.SphereCast(CylinderLeftRay, 0.5f, out hit, 0.4f))
             {
@@ -153,7 +153,7 @@ public class ArmControl : MonoBehaviour {
                 }
             }
         }
-        else if(Input.GetKey(KeyCode.RightArrow))
+        else if(InputManager.right())
         {
             if(!Physics.SphereCast(CylinderRightRay, 0.4f, out hit, 0.4f))
             {
@@ -173,7 +173,7 @@ public class ArmControl : MonoBehaviour {
             //Debug.Log("Test");
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (InputManager.down())
         {
             if(!Physics.SphereCast(CylinderDownRay, 0.5f, out hit, 0.1f))
             {
@@ -189,7 +189,7 @@ public class ArmControl : MonoBehaviour {
                 }
             }
         }
-        else if (Input.GetKey(KeyCode.UpArrow))
+        else if (InputManager.up())
         {
             transform.position += new Vector3(0, +0.05f, 0f); //形状位置を更新
         }
