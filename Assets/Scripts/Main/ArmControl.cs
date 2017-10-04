@@ -68,19 +68,14 @@ public class ArmControl : MonoBehaviour {
         Vector3 LeftDir = new Vector3(-1.0f, 0.0f, 0.0f);
         Vector3 RightDir = new Vector3(1.0f, 0.0f, 0.0f);
         rayPos = transform.position;
-        Debug.DrawRay(rayPos, LeftDir * 0.1f);
+        rayPos.y += 1.0f;
+        Debug.DrawRay(rayPos, LeftDir * 1.0f);
         Ray CylinderLeftRay = new Ray(rayPos, LeftDir);
 
-        Debug.DrawRay(rayPos, RightDir * 0.1f);
+        Debug.DrawRay(rayPos, RightDir * 1.0f);
         Ray CylinderRightRay = new Ray(rayPos, RightDir);
+        Ray CylinderDownRay = new Ray(rayPos, RightDir);
 
-        rayPos.y += 0.5f;
-        Debug.DrawRay(rayPos, RightDir * 0.23f);
-        Ray CylinderUpRightRay = new Ray(rayPos, RightDir);
-
-        rayPos.y += 0.5f;
-        Debug.DrawRay(rayPos, RightDir * 0.23f);
-        Ray CylinderUpLeftRay = new Ray(rayPos, LeftDir);
 
         RaycastHit hit;
 
@@ -135,11 +130,11 @@ public class ArmControl : MonoBehaviour {
         }
 
         // 自分にめり込んでいる
-        if (!Physics.Raycast(CylinderLeftRay, out hit, 0.15f) ||
-            !Physics.Raycast(CylinderUpLeftRay, out hit, 0.15f))
-        {
-            //Debug.Log("test");
-        }
+        //if (!Physics.Raycast(CylinderLeftRay, out hit, 0.15f) ||
+        //    !Physics.Raycast(CylinderUpLeftRay, out hit, 0.15f))
+        //{
+        //    //Debug.Log("test");
+        //}
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {

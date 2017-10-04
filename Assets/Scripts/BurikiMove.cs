@@ -23,7 +23,7 @@ public class BurikiMove : MonoBehaviour
     {
         //velocity::速度
         //x方向へMoveSpeed分移動させる
-        transform.position += new Vector3(0.1f, 0f, 0f);
+        transform.position += new Vector3(0.01f, 0f, 0f);
     }
 
 
