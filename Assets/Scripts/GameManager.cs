@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (InputManager.pose()) {
             if (Time.timeScale == 0) {
                 restart();
             }
