@@ -11,26 +11,34 @@ public class BurikiMove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //GetComponentの処理をキャッシュしておく
         rd = GetComponent<Rigidbody>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    public float x = 0;
+    public float y = 0;
+    public float z = 0;
+    void FixedUpdate()
     {
         //velocity::速度
         //x方向へMoveSpeed分移動させる
-        rd.velocity = new Vector2(MoveSpeed, rd.velocity.y);
-        
+        transform.position += new Vector3(0.1f, 0f, 0f);
     }
+
+
+
     void OnCollisionEnter(Collision clear)
     {
         if (clear.gameObject.tag == "Goal")
         {
             GameManager.Instance.gameClear();
         }
+        else if (clear.gameObject.tag == "GameOver")
+
+        {
+            Debug.Log("gameover");
+            GameManager.Instance.gameOver();
+        }
     }
 }
-
-   
-
- 

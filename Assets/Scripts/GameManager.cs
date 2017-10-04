@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private static int stageNum = 1;
+    private static int stageNum = 0;
     public static int StageNum {
         get {
             return stageNum;

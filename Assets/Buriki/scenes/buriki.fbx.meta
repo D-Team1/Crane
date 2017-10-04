@@ -185,11 +185,143 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 71
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: buriki
+        weight: 1
+      - path: buriki/body
+        weight: 1
+      - path: buriki/body/body 1
+        weight: 1
+      - path: buriki/head
+        weight: 1
+      - path: buriki/head/head 1
+        weight: 1
+      - path: buriki/head/L_eye
+        weight: 1
+      - path: buriki/head/L_eye/pCylinder2
+        weight: 1
+      - path: buriki/head/L_eye/pSphere2
+        weight: 1
+      - path: buriki/head/L_head
+        weight: 1
+      - path: buriki/head/L_head/pCylinder7
+        weight: 1
+      - path: buriki/head/L_head/pCylinder10
+        weight: 1
+      - path: buriki/head/L_head/pCylinder11
+        weight: 1
+      - path: buriki/head/L_head/pSphere4
+        weight: 1
+      - path: buriki/head/mouth
+        weight: 1
+      - path: buriki/head/mouth/mouth 1
+        weight: 1
+      - path: buriki/head/R_eye
+        weight: 1
+      - path: buriki/head/R_eye/pCylinder1
+        weight: 1
+      - path: buriki/head/R_eye/pSphere1
+        weight: 1
+      - path: buriki/head/R_head
+        weight: 1
+      - path: buriki/head/R_head/pCylinder6
+        weight: 1
+      - path: buriki/head/R_head/pCylinder8
+        weight: 1
+      - path: buriki/head/R_head/pCylinder9
+        weight: 1
+      - path: buriki/head/R_head/pSphere3
+        weight: 1
+      - path: buriki/L_arm
+        weight: 1
+      - path: buriki/L_arm/arm1
+        weight: 1
+      - path: buriki/L_arm/shoulder1
+        weight: 1
+      - path: buriki/L_foot
+        weight: 1
+      - path: buriki/L_foot/foot1
+        weight: 1
+      - path: buriki/L_foot/shoes1
+        weight: 1
+      - path: buriki/neck
+        weight: 1
+      - path: buriki/neck/neck 2
+        weight: 1
+      - path: buriki/R_arm
+        weight: 1
+      - path: buriki/R_arm/arm
+        weight: 1
+      - path: buriki/R_arm/shoulder
+        weight: 1
+      - path: buriki/R_foot
+        weight: 1
+      - path: buriki/R_foot/foot
+        weight: 1
+      - path: buriki/R_foot/shoes
+        weight: 1
+      - path: buriki/zenmai
+        weight: 1
+      - path: buriki/zenmai/pCube6
+        weight: 1
+      - path: buriki/zenmai/pPipe6
+        weight: 1
+      - path: main
+        weight: 1
+      - path: main/L_foot 1
+        weight: 1
+      - path: main/L_foot 1/L_foot1
+        weight: 1
+      - path: main/neck 1
+        weight: 1
+      - path: main/neck 1/head 2
+        weight: 1
+      - path: main/neck 1/L_arm 1
+        weight: 1
+      - path: main/neck 1/L_arm 1/L_arm1
+        weight: 1
+      - path: main/neck 1/R_arm 1
+        weight: 1
+      - path: main/neck 1/R_arm 1/R_arm1
+        weight: 1
+      - path: main/R_foot 1
+        weight: 1
+      - path: main/R_foot 1/R_foot1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.04
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -203,7 +335,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
