@@ -68,13 +68,16 @@ public class ArmControl : MonoBehaviour {
         Vector3 LeftDir = new Vector3(-1.0f, 0.0f, 0.0f);
         Vector3 RightDir = new Vector3(1.0f, 0.0f, 0.0f);
         rayPos = transform.position;
-        rayPos.y += 1.0f;
-        Debug.DrawRay(rayPos, LeftDir * 1.0f);
+        rayPos.y += 1.2f;
+        Debug.DrawRay(rayPos, LeftDir * 0.9f);
         Ray CylinderLeftRay = new Ray(rayPos, LeftDir);
 
-        Debug.DrawRay(rayPos, RightDir * 1.0f);
+        Debug.DrawRay(rayPos, RightDir * 0.9f);
         Ray CylinderRightRay = new Ray(rayPos, RightDir);
-        Ray CylinderDownRay = new Ray(rayPos, RightDir);
+
+        Debug.DrawRay(rayPos, RightDir * 0.9f);
+        Vector3 downDir = new Vector3(0.0f, -1.0f, 0.0f);
+        Ray CylinderDownRay = new Ray(rayPos, downDir);
 
 
         RaycastHit hit;
@@ -138,10 +141,9 @@ public class ArmControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //if (!Physics.Raycast(CylinderLeftRay, out hit, 0.15f) ||
-            //  !Physics.Raycast(CylinderUpLeftRay, out hit, 0.15f))
+            if (!Physics.SphereCast(CylinderLeftRay, 0.5f, out hit, 0.4f))
             {
-                if (!Physics.Raycast(leftRay, out hit, 0.5f) && m_IsCaught)
+                if (!Physics.Raycast(leftRay, out hit, 0.4f) && m_IsCaught)
                 {
                     transform.position += new Vector3(-0.05f,0f,0f); //形状位置を更新
                 }
@@ -153,8 +155,7 @@ public class ArmControl : MonoBehaviour {
         }
         else if(Input.GetKey(KeyCode.RightArrow))
         {
-            //if(!Physics.Raycast(CylinderRightRay, out hit, 0.15f) ||
-            //  !Physics.Raycast(CylinderUpRightRay, out hit, 0.15f))
+            if(!Physics.SphereCast(CylinderRightRay, 0.4f, out hit, 0.4f))
             {
                 if (!Physics.Raycast(rightRay, out hit, 0.5f) && m_IsCaught)
                 {
@@ -174,15 +175,18 @@ public class ArmControl : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (!Physics.Raycast(leftDownRay, out hit, 0.9f) &&
-                !Physics.Raycast(rightDownRay, out hit, 0.9f) && 
-                m_IsCaught)
+            if(!Physics.SphereCast(CylinderDownRay, 0.5f, out hit, 0.1f))
             {
-                transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
-            }
-            else if (!m_IsCaught)
-            {
-                transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
+                if (!Physics.Raycast(leftDownRay, out hit, 0.9f) &&
+                    !Physics.Raycast(rightDownRay, out hit, 0.9f) && 
+                    m_IsCaught)
+                {
+                    transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
+                }
+                else if (!m_IsCaught)
+                {
+                    transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
+                }
             }
         }
         else if (Input.GetKey(KeyCode.UpArrow))
