@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArmControl : MonoBehaviour {
 
@@ -8,20 +9,40 @@ public class ArmControl : MonoBehaviour {
     private bool m_IsMove;
     public static bool m_IsCaught; // 掴んでいるか
     public static bool m_CaughtEnable;
+    public static string m_CaughtTag;
     private bool m_IsReverse; // アニメーションを逆再生するか?
+    private float m_HpValue;
+    private Slider m_HpBar;
+    private float timeleft;
 
     // Use this for initialization
     void Start ()
     {
+        timeleft = 1.0f;
         m_IsReverse = false;
         m_CaughtEnable = false;
         m_IsCaught = false;
         m_IsMove = true;
+        m_HpValue = 200;
+        m_HpBar = GameObject.Find("Slider").GetComponent<Slider>();
+        m_HpBar.maxValue = m_HpValue;
+        m_HpBar.value = m_HpBar.maxValue;
+        m_CaughtTag = "";
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if(m_CaughtTag == "BuildingBlocks")
+        {
+            m_HpBar.value -= 10.0f / 60.0f;
+        }
+        
+        if(m_HpBar.value <= 0)
+        {
+            GameManager.Instance.gameOver();
+        }
+
         if (GameManager.Instance.IsDuringPose) return;
         Vector3 rayPos = transform.position;
         rayPos.y -= 0.6f;
@@ -100,6 +121,7 @@ public class ArmControl : MonoBehaviour {
         }
         else if(stateInfo.normalizedTime <= 0.9f)
         {
+            m_CaughtTag = "";
             m_CaughtEnable = false;
         }
         else if(m_IsCaught)
@@ -108,6 +130,7 @@ public class ArmControl : MonoBehaviour {
         }
         else
         {
+            m_CaughtTag = "";
             m_CaughtEnable = false;
         }
 
