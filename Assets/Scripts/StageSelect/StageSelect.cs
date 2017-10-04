@@ -15,6 +15,9 @@ public class StageSelect : MonoBehaviour
     [SerializeField]
     GameObject stageButton;
 
+    [SerializeField]
+    GameObject backButton;
+
     /// <summary>
     /// EventSystemの参照
     /// </summary>
@@ -52,6 +55,10 @@ public class StageSelect : MonoBehaviour
                         
             obj.GetComponent<Button>().interactable = unlockStages[i];
         }
+
+        backButton.GetComponent<Button>().onClick.AddListener(() => {
+            SceneManager.changeScene(SceneNames.Title);
+        });
     }
 
     public static void unlockStage(int stageIndex)
