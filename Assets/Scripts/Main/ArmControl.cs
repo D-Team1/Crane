@@ -84,19 +84,16 @@ public class ArmControl : MonoBehaviour {
 
         {
             var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
-            Debug.Log(stateInfo.normalizedTime);
             if(stateInfo.normalizedTime <= 1.4f && stateInfo.normalizedTime >= 0.5f)
             {
                 m_CaughtEnable = true;
             }
             else if(stateInfo.normalizedTime <= 0.9f)
             {
-                Debug.Log("1");
                 m_CaughtEnable = false;
             }
             else if(m_IsCaught)
             {
-                Debug.Log("2");
                 m_CaughtEnable = true;
             }
             else
