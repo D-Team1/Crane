@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
     GameObject goToTitleButton;
 
     /// <summary>
+    /// ゲームオーバー時に表示するテキスト
+    /// </summary>
+    [SerializeField]
+    GameObject gameResultText;
+
+    /// <summary>
     /// ステージの番号
     /// </summary>
     static int stageNum = 1;
@@ -52,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         restartButton.SetActive(false);
         goToTitleButton.SetActive(false);
+        gameResultText.SetActive(false);
     }
 
     void Update()
@@ -105,8 +112,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameClear()
     {
+        gameResultText.SetActive(true);
+        gameResultText.GetComponent<Text>().text = "Clear";
         StageSelect.unlockStage(stageNum);
-        SceneManager.changeScene(SceneNames.Result);
+        Invoke("goToResult", 1.0f);
     }
 
     /// <summary>
@@ -114,7 +123,24 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameOver()
     {
-        //TODO: ゲームオーバーの際の表示
+        gameResultText.SetActive(true);
+        gameResultText.GetComponent<Text>().text = "GameOver";
+        Invoke("goToStageSelect", 1.0f);
+    }
+
+    /// <summary>
+    /// Invokeで使用、時間差でリザルトへ
+    /// </summary>
+    void goToResult()
+    {
+        SceneManager.changeScene(SceneNames.Result);
+    }
+
+    /// <summary>
+    /// Invokeで使用、時間差でステージセレクトへ
+    /// </summary>
+    void goToStageSelect()
+    {
         SceneManager.changeScene(SceneNames.StageSelect);
     }
 }
