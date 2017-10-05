@@ -34,11 +34,6 @@ public class StageSelect : MonoBehaviour
     GameObject es;
 
     /// <summary>
-    /// ステージ数
-    /// </summary>
-    const int NUMBER_OF_STAGES = 15;
-
-    /// <summary>
     /// ステージのアンロック
     /// </summary>
     static bool[] unlockStages = {
@@ -52,7 +47,7 @@ public class StageSelect : MonoBehaviour
         SoundManager.Instance.playBGM(0);
         es = GameObject.Find("EventSystem")as GameObject;
 
-        for (int i = 0; i < NUMBER_OF_STAGES; ++i) {
+        for (int i = 0; i < unlockStages.Length; ++i) {
             var obj = Instantiate(stageButton)as GameObject;
             obj.transform.SetParent(transform, false);
             obj.GetComponentInChildren<Text>().text = (i + 1).ToString();
@@ -76,7 +71,7 @@ public class StageSelect : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q)) {
-            for (int i = 0; i < NUMBER_OF_STAGES; ++i) {
+            for (int i = 0; i < unlockStages.Length; ++i) {
                 unlockStages[i] = true;
             }
 
