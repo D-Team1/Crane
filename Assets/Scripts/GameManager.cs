@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     /// ゲームオーバー時に表示するテキスト
     /// </summary>
     [SerializeField]
-    GameObject gameResultText;
+    GameObject gameOverImage;
 
     /// <summary>
     /// ステージの番号
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.playBGM(0);
         restartButton.SetActive(false);
         goToTitleButton.SetActive(false);
-        gameResultText.SetActive(false);
+        gameOverImage.SetActive(false);
     }
 
     void Update()
@@ -115,10 +115,8 @@ public class GameManager : MonoBehaviour
     public void gameClear()
     {
         SoundManager.Instance.playSE(4);
-        gameResultText.SetActive(true);
-        gameResultText.GetComponent<Text>().text = "Clear";
         if (!StageSelect.unlockStage(stageNum)) {
-            Invoke("goToStageSelect", 1.0f);
+            Invoke("goToStageSelect", 1.5f);
             return;
         }
         Invoke("goToResult", 1.0f);
@@ -129,9 +127,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameOver()
     {
-        gameResultText.SetActive(true);
-        gameResultText.GetComponent<Text>().text = "GameOver";
-        Invoke("goToStageSelect", 1.0f);
+        gameOverImage.SetActive(true);
+        Invoke("goToStageSelect", 1.5f);
     }
 
     /// <summary>
