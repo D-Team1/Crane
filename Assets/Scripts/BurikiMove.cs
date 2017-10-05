@@ -41,6 +41,7 @@ public class BurikiMove : MonoBehaviour
 
         {
             Debug.Log("gameover");
+            SoundManager.Instance.playSE(3);
             GameManager.Instance.gameOver();
         }
     }
