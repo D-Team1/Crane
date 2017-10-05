@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameClear()
     {
+        SoundManager.Instance.playSE(4);
         gameResultText.SetActive(true);
         gameResultText.GetComponent<Text>().text = "Clear";
         StageSelect.unlockStage(stageNum);
