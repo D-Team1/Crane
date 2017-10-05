@@ -14,6 +14,9 @@ public class ArmControl : MonoBehaviour {
     private Slider m_HpBar;
     private float timeleft;
 
+    [SerializeField]
+    List<int> m_MaxHpValues = new List<int>();
+
     // Use this for initialization
     void Start ()
     {
@@ -23,7 +26,8 @@ public class ArmControl : MonoBehaviour {
         m_IsCaught = false;
         m_HpValue = 200;
         m_HpBar = GameObject.Find("Slider").GetComponent<Slider>();
-        m_HpBar.maxValue = m_HpValue;
+        //m_HpBar.maxValue = m_HpValue;
+        m_HpBar.maxValue = m_MaxHpValues[GameManager.StageNum - 1];
         m_HpBar.value = m_HpBar.maxValue;
         m_CaughtTag = "";
     }
