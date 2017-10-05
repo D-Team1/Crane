@@ -6,7 +6,7 @@ public class BurikiMove : MonoBehaviour
 {
 
     Rigidbody rd;
-    public float MoveSpeed = 0.5f;
+    float MoveSpeed = 0.01f;
     public GameObject DestroyEffect;
     private Animator anim;
     RaycastHit hit;
@@ -30,7 +30,7 @@ public class BurikiMove : MonoBehaviour
         Debug.DrawRay(rayPos, Vector3.right*0.28f);
         if(!Physics.Raycast(rayPos, Vector3.right, 0.28f))
         {
-            transform.position += new Vector3(0.01f, 0f, 0f);
+            transform.position += new Vector3(MoveSpeed, 0f, 0f);
         }
 
         Vector3 ray = transform.position;
@@ -46,10 +46,13 @@ public class BurikiMove : MonoBehaviour
     {
         if (clear.gameObject.tag == "Goal")
         {
+            MoveSpeed = 0.0f;
+            anim.speed = 0.0f;
             GameManager.Instance.gameClear();
         }
         else if (clear.gameObject.tag == "GameOver")
         {
+            SoundManager.Instance.playSE(3);
             GameManager.Instance.gameOver();
             Instantiate(DestroyEffect,gameObject.transform.position,Quaternion.identity);
             Destroy(gameObject);
