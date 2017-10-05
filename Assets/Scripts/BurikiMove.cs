@@ -36,7 +36,7 @@ public class BurikiMove : MonoBehaviour
         Vector3 ray = transform.position;
         ray.y += 0.8f;
         Vector3 rayDir = new Vector3(0, 1, 0);
-        Debug.DrawRay(ray, rayDir * 2);
+        Debug.DrawRay(ray, rayDir * 1);
         //anim.SetFloat("speed");
     }
 
@@ -58,13 +58,17 @@ public class BurikiMove : MonoBehaviour
         else if (clear.gameObject.tag == "BuildingBlocks")
         {
             Vector3 rayPos = transform.position;
-            rayPos.y += 1.5f;
+            rayPos.y += 0.5f;
             Ray ray = new Ray(rayPos, Vector3.up);
-            if (Physics.SphereCast(ray, 0.8f, out hit, 1.0f))
+            if (Physics.SphereCast(ray, 1.0f, out hit, 1.0f))
             {
-                GameManager.Instance.gameOver();
-                Instantiate(DestroyEffect, gameObject.transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                Debug.Log(hit.transform.tag);
+                if(hit.transform.tag == "BuildingBlocks")
+                {
+                    GameManager.Instance.gameOver();
+                    Instantiate(DestroyEffect, gameObject.transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
             }
 
             //if (Physics.Raycast(rayPos, rayDir,0.5f))
