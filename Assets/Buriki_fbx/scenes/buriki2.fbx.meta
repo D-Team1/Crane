@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: ec3b617fa51d9a2429c265f9932375b2
+timeCreated: 1507168575
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm
+    100002: arm1
+    100004: body
+    100006: body 1
+    100008: buriki
+    100010: //RootNode
+    100012: foot
+    100014: foot1
+    100016: head
+    100018: head 1
+    100020: head 2
+    100022: L_arm
+    100024: L_arm 1
+    100026: L_arm1
+    100028: L_eye
+    100030: L_foot
+    100032: L_foot 1
+    100034: L_foot1
+    100036: main
+    100038: mouth
+    100040: mouth 1
+    100042: neck
+    100044: neck 1
+    100046: neck 2
+    100048: pCube6
+    100050: pCylinder1
+    100052: pCylinder12
+    100054: pCylinder2
+    100056: pPipe6
+    100058: pSphere1
+    100060: pSphere2
+    100062: R_arm
+    100064: R_arm 1
+    100066: R_arm1
+    100068: R_eye
+    100070: R_foot
+    100072: R_foot 1
+    100074: R_foot1
+    100076: shoes
+    100078: shoes1
+    100080: shoulder
+    100082: shoulder1
+    100084: zenmai
+    400000: arm
+    400002: arm1
+    400004: body
+    400006: body 1
+    400008: buriki
+    400010: //RootNode
+    400012: foot
+    400014: foot1
+    400016: head
+    400018: head 1
+    400020: head 2
+    400022: L_arm
+    400024: L_arm 1
+    400026: L_arm1
+    400028: L_eye
+    400030: L_foot
+    400032: L_foot 1
+    400034: L_foot1
+    400036: main
+    400038: mouth
+    400040: mouth 1
+    400042: neck
+    400044: neck 1
+    400046: neck 2
+    400048: pCube6
+    400050: pCylinder1
+    400052: pCylinder12
+    400054: pCylinder2
+    400056: pPipe6
+    400058: pSphere1
+    400060: pSphere2
+    400062: R_arm
+    400064: R_arm 1
+    400066: R_arm1
+    400068: R_eye
+    400070: R_foot
+    400072: R_foot 1
+    400074: R_foot1
+    400076: shoes
+    400078: shoes1
+    400080: shoulder
+    400082: shoulder1
+    400084: zenmai
+    4300000: pSphere2
+    4300002: pCylinder2
+    4300004: pCylinder1
+    4300006: pSphere1
+    4300008: mouth
+    4300010: head
+    4300012: neck
+    4300014: body
+    4300016: arm
+    4300018: shoulder
+    4300020: arm1
+    4300022: shoulder1
+    4300024: foot
+    4300026: shoes
+    4300028: foot1
+    4300030: shoes1
+    4300032: pCube6
+    4300034: pPipe6
+    4300036: pCylinder12
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: arm
+    13700002: arm1
+    13700004: body 1
+    13700006: foot
+    13700008: foot1
+    13700010: head 1
+    13700012: mouth 1
+    13700014: neck 2
+    13700016: pCube6
+    13700018: pCylinder1
+    13700020: pCylinder12
+    13700022: pCylinder2
+    13700024: pPipe6
+    13700026: pSphere1
+    13700028: pSphere2
+    13700030: shoes
+    13700032: shoes1
+    13700034: shoulder
+    13700036: shoulder1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 68
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: buriki
+        weight: 1
+      - path: buriki/body
+        weight: 1
+      - path: buriki/body/body 1
+        weight: 1
+      - path: buriki/head
+        weight: 1
+      - path: buriki/head/head 1
+        weight: 1
+      - path: buriki/head/L_eye
+        weight: 1
+      - path: buriki/head/L_eye/pCylinder2
+        weight: 1
+      - path: buriki/head/L_eye/pSphere2
+        weight: 1
+      - path: buriki/head/mouth
+        weight: 1
+      - path: buriki/head/mouth/mouth 1
+        weight: 1
+      - path: buriki/head/R_eye
+        weight: 1
+      - path: buriki/head/R_eye/pCylinder1
+        weight: 1
+      - path: buriki/head/R_eye/pSphere1
+        weight: 1
+      - path: buriki/L_arm
+        weight: 1
+      - path: buriki/L_arm/arm1
+        weight: 1
+      - path: buriki/L_arm/shoulder1
+        weight: 1
+      - path: buriki/L_foot
+        weight: 1
+      - path: buriki/L_foot/foot1
+        weight: 1
+      - path: buriki/L_foot/shoes1
+        weight: 1
+      - path: buriki/neck
+        weight: 1
+      - path: buriki/neck/neck 2
+        weight: 1
+      - path: buriki/R_arm
+        weight: 1
+      - path: buriki/R_arm/arm
+        weight: 1
+      - path: buriki/R_arm/shoulder
+        weight: 1
+      - path: buriki/R_foot
+        weight: 1
+      - path: buriki/R_foot/foot
+        weight: 1
+      - path: buriki/R_foot/shoes
+        weight: 1
+      - path: buriki/zenmai
+        weight: 1
+      - path: buriki/zenmai/pCube6
+        weight: 1
+      - path: buriki/zenmai/pCylinder12
+        weight: 1
+      - path: buriki/zenmai/pPipe6
+        weight: 1
+      - path: main
+        weight: 1
+      - path: main/L_foot 1
+        weight: 1
+      - path: main/L_foot 1/L_foot1
+        weight: 1
+      - path: main/neck 1
+        weight: 1
+      - path: main/neck 1/head 2
+        weight: 1
+      - path: main/neck 1/L_arm 1
+        weight: 1
+      - path: main/neck 1/L_arm 1/L_arm1
+        weight: 1
+      - path: main/neck 1/R_arm 1
+        weight: 1
+      - path: main/neck 1/R_arm 1/R_arm1
+        weight: 1
+      - path: main/R_foot 1
+        weight: 1
+      - path: main/R_foot 1/R_foot1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
