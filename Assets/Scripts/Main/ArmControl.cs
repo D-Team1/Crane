@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ArmControl : MonoBehaviour {
 
     private Vector3 m_Pos;
-    private bool m_IsMove;
     public static bool m_IsCaught; // 掴んでいるか
     public static bool m_CaughtEnable;
     public static string m_CaughtTag;
@@ -22,7 +21,6 @@ public class ArmControl : MonoBehaviour {
         m_IsReverse = false;
         m_CaughtEnable = false;
         m_IsCaught = false;
-        m_IsMove = true;
         m_HpValue = 200;
         m_HpBar = GameObject.Find("Slider").GetComponent<Slider>();
         m_HpBar.maxValue = m_HpValue;
@@ -49,24 +47,23 @@ public class ArmControl : MonoBehaviour {
 
         if (GameManager.Instance.IsDuringPose) return;
         Vector3 rayPos = transform.position;
-        rayPos.y -= 0.6f;
+        rayPos.y -= 0.2f;
         Vector3 rayDir = new Vector3(1.0f,0.0f,0.0f);
-        Debug.DrawRay(rayPos, rayDir * 0.5f);
+        Debug.DrawRay(rayPos, rayDir * 0.3f);
         Ray rightRay = new Ray(rayPos, rayDir);
 
         rayDir = new Vector3(-1.0f, 0.0f, 0.0f);
-        Debug.DrawRay(rayPos, rayDir * 0.5f);
+        Debug.DrawRay(rayPos, rayDir * 0.3f);
         Ray leftRay = new Ray(rayPos, rayDir);
 
         rayDir = new Vector3(0.0f, -1.0f, 0.0f);
-        rayPos.y += 0.8f;
-        rayPos.x += 0.4f;
-        Debug.DrawRay(rayPos, rayDir * 0.9f);
-        Ray leftDownRay = new Ray(rayPos, rayDir);
+        rayPos.y += 0.3f;
+        Debug.DrawRay(rayPos, rayDir * 0.4f);
+        Ray downRay = new Ray(rayPos, rayDir);
 
         rayPos.x = transform.position.x;
         rayPos.x -= 0.4f;
-        Debug.DrawRay(rayPos, rayDir * 0.9f);
+        //Debug.DrawRay(rayPos, rayDir * 0.9f);
         Ray rightDownRay = new Ray(rayPos, rayDir);
 
         Vector3 LeftDir = new Vector3(-1.0f, 0.0f, 0.0f);
@@ -154,9 +151,9 @@ public class ArmControl : MonoBehaviour {
 
         if (InputManager.left())
         {
-            if (!Physics.SphereCast(CylinderLeftRay, 0.5f, out hit, 0.4f))
+            if (!Physics.SphereCast(CylinderLeftRay, 0.4f, out hit, 0.35f))
             {
-                if (!Physics.Raycast(leftRay, out hit, 0.4f) && m_IsCaught)
+                if (!Physics.SphereCast(leftRay,  0.4f, out hit, 0.28f) && m_IsCaught)
                 {
                     transform.position += new Vector3(-0.05f,0f,0f); //形状位置を更新
                 }
@@ -168,9 +165,9 @@ public class ArmControl : MonoBehaviour {
         }
         else if(InputManager.right())
         {
-            if(!Physics.SphereCast(CylinderRightRay, 0.4f, out hit, 0.4f))
+            if(!Physics.SphereCast(CylinderRightRay, 0.4f, out hit, 0.35f))
             {
-                if (!Physics.Raycast(rightRay, out hit, 0.5f) && m_IsCaught)
+                if (!Physics.SphereCast(rightRay, 0.4f, out hit, 0.28f) && m_IsCaught)
                 {
                     transform.position += new Vector3(+0.05f, 0f, 0f); //形状位置を更新
                 }
@@ -181,17 +178,11 @@ public class ArmControl : MonoBehaviour {
             }
         }
 
-        if(!Physics.Raycast(leftDownRay, out hit, 0.9f))
-        {
-            //Debug.Log("Test");
-        }
-
         if (InputManager.down())
         {
             if(!Physics.SphereCast(CylinderDownRay, 0.45f, out hit, 0.1f))
             {
-                if (!Physics.Raycast(leftDownRay, out hit, 0.9f) &&
-                    !Physics.Raycast(rightDownRay, out hit, 0.9f) && 
+                if (!Physics.SphereCast(downRay, 0.34f, out hit, 0.5f) &&
                     m_IsCaught)
                 {
                     transform.position += new Vector3(0, -0.05f, 0f); //形状位置を更新
@@ -206,21 +197,5 @@ public class ArmControl : MonoBehaviour {
         {
             transform.position += new Vector3(0, +0.05f, 0f); //形状位置を更新
         }
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-        m_IsMove = false;
-    }
-
-    void OnCollisionStay(Collision col)
-    {
-        m_IsMove = false;
-    }
-
-    void OnCollisionExit(Collision col)
-    {
-        m_IsMove = true;
     }
 }
