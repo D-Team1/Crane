@@ -26,18 +26,62 @@ public class Title : MonoBehaviour
     [SerializeField]
     GameObject operationButton;
 
+    /// <summary>
+    /// タイトル画像
+    /// </summary>
+    [SerializeField]
+    GameObject titleImage;
+
+    /// <summary>
+    /// シーン遷移を遅らせる時間
+    /// </summary>
+    const float DELAY_TIME = 0.3f;
+
     void Start()
     {
         SoundManager.Instance.playBGM(0);
 
         storyButton.GetComponent<Button>().onClick.AddListener(() => {
-            MySceneManager.changeScene(SceneNames.Story);
+            changeScene(SceneNames.Story);
         });
         stageSelectButton.GetComponent<Button>().onClick.AddListener(() => {
-            MySceneManager.changeScene(SceneNames.StageSelect);
+            changeScene(SceneNames.StageSelect);
         });
         operationButton.GetComponent<Button>().onClick.AddListener(() => {
-            MySceneManager.changeScene(SceneNames.Operation);
+            changeScene(SceneNames.Operation);
         });
+    }
+
+    void changeScene(string sceneName)
+    {
+        Destroy(storyButton);
+        Destroy(stageSelectButton);
+        Destroy(operationButton);
+        Destroy(titleImage);
+
+        if (sceneName.Equals(SceneNames.Story)) {
+            Invoke("changeStory", DELAY_TIME);
+        }
+        else if (sceneName.Equals(SceneNames.StageSelect)) {
+            Invoke("changeStageSelect", DELAY_TIME);
+        }
+        else {
+            Invoke("changeOperation", DELAY_TIME);
+        }
+    }
+
+    void changeStory()
+    {
+        MySceneManager.changeScene(SceneNames.Story);
+    }
+
+    void changeStageSelect()
+    {
+        MySceneManager.changeScene(SceneNames.StageSelect);
+    }
+
+    void changeOperation()
+    {
+        MySceneManager.changeScene(SceneNames.Operation);
     }
 }
