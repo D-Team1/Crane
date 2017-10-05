@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.playBGM(0);
         restartButton.SetActive(false);
         goToTitleButton.SetActive(false);
         gameResultText.SetActive(false);
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (InputManager.pose()) {
+            SoundManager.Instance.playOverapSE(0);
             if (Time.timeScale == 0) {
                 restart();
             }
@@ -104,7 +106,7 @@ public class GameManager : MonoBehaviour
     public static void changeStage(int _stageNum)
     {
         stageNum = _stageNum;
-        SceneManager.changeScene(SceneNames.Main);
+        MySceneManager.changeScene(SceneNames.Main);
     }
 
     /// <summary>
@@ -133,7 +135,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void goToResult()
     {
-        SceneManager.changeScene(SceneNames.Result);
+        MySceneManager.changeScene(SceneNames.Result);
     }
 
     /// <summary>
@@ -141,6 +143,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void goToStageSelect()
     {
-        SceneManager.changeScene(SceneNames.StageSelect);
+        MySceneManager.changeScene(SceneNames.StageSelect);
     }
 }

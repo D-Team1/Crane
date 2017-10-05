@@ -39,6 +39,7 @@ public class StageSelect : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.playBGM(0);
         es = GameObject.Find("EventSystem")as GameObject;
 
         for (int i = 0; i < NUMBER_OF_STAGES; ++i) {
@@ -57,18 +58,18 @@ public class StageSelect : MonoBehaviour
         }
 
         backButton.GetComponent<Button>().onClick.AddListener(() => {
-            SceneManager.changeScene(SceneNames.Title);
+            MySceneManager.changeScene(SceneNames.Title);
         });
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             for (int i = 0; i < NUMBER_OF_STAGES; ++i) {
                 unlockStages[i] = true;
             }
 
-            SceneManager.changeScene(SceneNames.StageSelect);
+            MySceneManager.changeScene(SceneNames.StageSelect);
         }
     }
 

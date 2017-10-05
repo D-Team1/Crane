@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// BGM用のAudioSource
     /// </summary>
-    AudioSource sourceBGM;
+    static AudioSource sourceBGM;
 
     /// <summary>
     /// SE用のAudioSource
@@ -40,14 +40,14 @@ public class SoundManager : MonoBehaviour
         if (instance == null) {
             instance = this;
         }
-    }
-
-    void Start()
-    {
         sourceBGM = gameObject.AddComponent<AudioSource>();
         sourceBGM.loop = true;
 
         sourceSE  = gameObject.AddComponent<AudioSource>();
+    }
+
+    void Start()
+    {
     }
 
     /// <summary>
@@ -65,13 +65,21 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// SEの再生
+    /// SEを重ねて再生
     /// </summary>
     /// <param name="index">SEの配列のインデックス</param>
-    public void playSE(int index)
+    public void playOverapSE(int index)
     {
         if (seList.Count <= index) { return; }
 
         sourceSE.PlayOneShot(seList[index]);
+    }
+
+    public void playSE(int index)
+    {
+        if (seList.Count <= index) { return; }
+
+        sourceSE.clip = seList[index];
+        sourceSE.Play();
     }
 }

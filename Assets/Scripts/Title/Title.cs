@@ -16,18 +16,15 @@ public class Title : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.playBGM(0);
+
         storyButton.GetComponent<Button>().onClick.AddListener(() => {
-            SceneManager.changeScene(SceneNames.Story);
+            SoundManager.Instance.playOverapSE(0);
+            MySceneManager.changeScene(SceneNames.Story);
         });
         stageSelectButton.GetComponent<Button>().onClick.AddListener(() => {
-            SceneManager.changeScene(SceneNames.StageSelect);
+            SoundManager.Instance.playOverapSE(0);
+            MySceneManager.changeScene(SceneNames.StageSelect);
         });
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return)) {
-            SceneManager.changeScene(SceneNames.StageSelect);
-        }
     }
 }

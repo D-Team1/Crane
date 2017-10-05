@@ -49,6 +49,7 @@ public class BurikiMove : MonoBehaviour
         }
         else if (clear.gameObject.tag == "GameOver")
         {
+            SoundManager.Instance.playSE(3);
             GameManager.Instance.gameOver();
             Instantiate(DestroyEffect,gameObject.transform.position,Quaternion.identity);
             Destroy(gameObject);

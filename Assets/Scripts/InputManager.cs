@@ -4,7 +4,7 @@ public class InputManager : MonoBehaviour
 {
     public static bool right()
     {
-        if (Input.GetAxis("Horizontal") > 0.0f) {
+        if (Input.GetAxis("Horizontal") > 0.0f) {            
             return true;
         }
 
