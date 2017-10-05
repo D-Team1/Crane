@@ -23,7 +23,10 @@ public class OperationManager : MonoBehaviour
     /// 操作説明のイメージ
     /// </summary>
     [SerializeField, Header("操作説明に使用する画像")]
-    List<Sprite> operationImages = new List<Sprite>();
+    List<Sprite> operationSprites = new List<Sprite>();
+
+    [SerializeField, Header("「戻る、次へ、タイトル」ボタン")]
+    List<Sprite> buttonSprites = new List<Sprite>();
 
     /// <summary>
     /// 使用するイメージのインデックス
@@ -56,7 +59,7 @@ public class OperationManager : MonoBehaviour
             nextButton.GetComponent<Button>().Select();
         }
         else if (index == 2) {
-            nextButton.GetComponentInChildren<Text>().text = "タイトル";
+            nextButton.GetComponent<Image>().sprite = buttonSprites[2];
         }
         else if (index == 3) {
             MySceneManager.changeScene(SceneNames.Title);
@@ -64,12 +67,12 @@ public class OperationManager : MonoBehaviour
             return;
         }
         else {
-            nextButton.GetComponentInChildren<Text>().text = "次";
+            nextButton.GetComponent<Image>().sprite = buttonSprites[1];
 
-            backButton.GetComponentInChildren<Text>().text = "前";
+            backButton.GetComponent<Image>().sprite = buttonSprites[0];
             backButton.GetComponent<Button>().interactable = true;
         }
 
-        operationImage.GetComponent<Image>().sprite = operationImages[index];
+        operationImage.GetComponent<Image>().sprite = operationSprites[index];
     }
 }

@@ -15,8 +15,18 @@ public class StageSelect : MonoBehaviour
     [SerializeField]
     GameObject stageButton;
 
+    /// <summary>
+    /// 戻るボタン
+    /// </summary>
     [SerializeField]
     GameObject backButton;
+
+    /// <summary>
+    /// ステージセレクトボタンのスプライト
+    /// </summary>
+    [SerializeField, Header("ステージ選択ボタンのスプライト")]
+    List<Sprite> stageButtonSprite = new List<Sprite>();
+    
 
     /// <summary>
     /// EventSystemの参照
@@ -54,6 +64,7 @@ public class StageSelect : MonoBehaviour
                 es.GetComponent<EventSystem>().firstSelectedGameObject = obj;
             }
                         
+            obj.GetComponent<Image>().sprite = stageButtonSprite[i];
             obj.GetComponent<Button>().interactable = unlockStages[i];
         }
 
