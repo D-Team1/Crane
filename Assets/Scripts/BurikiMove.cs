@@ -26,8 +26,8 @@ public class BurikiMove : MonoBehaviour
     {
         Vector3 rayPos = transform.position;
         rayPos.y += 0.5f;
-        Debug.DrawRay(rayPos, Vector3.right*0.4f);
-        if(!Physics.Raycast(rayPos, Vector3.right, 0.4f))
+        Debug.DrawRay(rayPos, Vector3.right*0.38f);
+        if(!Physics.Raycast(rayPos, Vector3.right, 0.38f))
         {
             transform.position += new Vector3(0.01f, 0f, 0f);
         }

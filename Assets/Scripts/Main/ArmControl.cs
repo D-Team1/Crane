@@ -179,7 +179,7 @@ public class ArmControl : MonoBehaviour {
 
         if (InputManager.down())
         {
-            if(!Physics.SphereCast(CylinderDownRay, 0.5f, out hit, 0.1f))
+            if(!Physics.SphereCast(CylinderDownRay, 0.45f, out hit, 0.1f))
             {
                 if (!Physics.Raycast(leftDownRay, out hit, 0.9f) &&
                     !Physics.Raycast(rightDownRay, out hit, 0.9f) && 
