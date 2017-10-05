@@ -39,6 +39,7 @@ public class Title : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         SoundManager.Instance.playBGM(0);
 
         storyButton.GetComponent<Button>().onClick.AddListener(() => {
