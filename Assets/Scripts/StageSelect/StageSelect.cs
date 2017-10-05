@@ -37,9 +37,7 @@ public class StageSelect : MonoBehaviour
     /// ステージのアンロック
     /// </summary>
     static bool[] unlockStages = {
-        true , false, false, false, false,
-        false, false, false, false, false,
-        false, false, false, false, false
+        true , false, false, false, false, false
     };
 
     void Start()
@@ -79,8 +77,13 @@ public class StageSelect : MonoBehaviour
         }
     }
 
-    public static void unlockStage(int stageIndex)
+    public static bool unlockStage(int stageIndex)
     {
+        if (GameManager.StageNum == unlockStages.Length) {
+            return false;
+        }
+
         unlockStages[stageIndex] = true;
+        return true;
     }
 }

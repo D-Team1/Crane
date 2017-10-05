@@ -19,6 +19,10 @@ public class Result : MonoBehaviour
         SoundManager.Instance.playBGM(0);
 
         nextStageButton.GetComponent<Button>().onClick.AddListener(() => {
+            if (GameManager.StageNum == 5) {
+                nextStageButton.GetComponent<Button>().interactable = false;
+                return;
+            }
             GameManager.changeStage(GameManager.StageNum + 1);
         });
         stageSelectButton.GetComponent<Button>().onClick.AddListener(() => {
