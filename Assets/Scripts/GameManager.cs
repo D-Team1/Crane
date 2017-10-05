@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameOver()
     {
+        SoundManager.Instance.playSE(3);
         gameOverImage.SetActive(true);
         Invoke("goToStageSelect", 1.5f);
     }
