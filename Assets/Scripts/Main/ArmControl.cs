@@ -95,7 +95,6 @@ public class ArmControl : MonoBehaviour {
         }
         if(InputManager.moveArm())
         {
-            Debug.Log(stateInfo.normalizedTime);
             //var animationHash = stateInfo.shortNameHash;
             //GetComponent<Animator>().Play(animationHash, 0, 0);
             GetComponent<Animator>().SetFloat("Speed", 1);
@@ -153,7 +152,7 @@ public class ArmControl : MonoBehaviour {
         {
             if (!Physics.SphereCast(CylinderLeftRay, 0.4f, out hit, 0.35f))
             {
-                if (!Physics.SphereCast(leftRay,  0.4f, out hit, 0.28f) && m_IsCaught)
+                if (!Physics.SphereCast(leftRay,  0.4f, out hit, 0.25f) && m_IsCaught)
                 {
                     transform.position += new Vector3(-0.05f,0f,0f); //形状位置を更新
                 }
@@ -167,7 +166,7 @@ public class ArmControl : MonoBehaviour {
         {
             if(!Physics.SphereCast(CylinderRightRay, 0.4f, out hit, 0.35f))
             {
-                if (!Physics.SphereCast(rightRay, 0.4f, out hit, 0.28f) && m_IsCaught)
+                if (!Physics.SphereCast(rightRay, 0.4f, out hit, 0.25f) && m_IsCaught)
                 {
                     transform.position += new Vector3(+0.05f, 0f, 0f); //形状位置を更新
                 }
