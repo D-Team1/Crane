@@ -8,23 +8,36 @@ using UnityEngine.UI;
 /// </summary>
 public class Title : MonoBehaviour
 {
+    /// <summary>
+    /// StorySceneに遷移するボタン
+    /// </summary>
     [SerializeField]
     GameObject storyButton;
 
+    /// <summary>
+    /// StageSelectSceneに遷移するボタン
+    /// </summary>
     [SerializeField]
     GameObject stageSelectButton;
+
+    /// <summary>
+    /// OperationSceneに遷移するボタン
+    /// </summary>
+    [SerializeField]
+    GameObject operationButton;
 
     void Start()
     {
         SoundManager.Instance.playBGM(0);
 
         storyButton.GetComponent<Button>().onClick.AddListener(() => {
-            SoundManager.Instance.playOverapSE(0);
             MySceneManager.changeScene(SceneNames.Story);
         });
         stageSelectButton.GetComponent<Button>().onClick.AddListener(() => {
-            SoundManager.Instance.playOverapSE(0);
             MySceneManager.changeScene(SceneNames.StageSelect);
+        });
+        operationButton.GetComponent<Button>().onClick.AddListener(() => {
+            MySceneManager.changeScene(SceneNames.Operation);
         });
     }
 }
