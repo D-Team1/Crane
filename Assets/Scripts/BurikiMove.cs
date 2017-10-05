@@ -9,6 +9,7 @@ public class BurikiMove : MonoBehaviour
     public float MoveSpeed = 0.5f;
     public GameObject DestroyEffect;
     private Animator anim;
+    RaycastHit hit;
 
     // Use this for initialization
     void Start()
@@ -26,8 +27,8 @@ public class BurikiMove : MonoBehaviour
     {
         Vector3 rayPos = transform.position;
         rayPos.y += 0.5f;
-        Debug.DrawRay(rayPos, Vector3.right*0.26f);
-        if(!Physics.Raycast(rayPos, Vector3.right, 0.26f))
+        Debug.DrawRay(rayPos, Vector3.right*0.28f);
+        if(!Physics.Raycast(rayPos, Vector3.right, 0.28f))
         {
             transform.position += new Vector3(0.01f, 0f, 0f);
         }
@@ -58,13 +59,17 @@ public class BurikiMove : MonoBehaviour
         {
             Vector3 rayPos = transform.position;
             rayPos.y += 1.5f;
-            Vector3 rayDir = new Vector3(0,1,0);
-            if (Physics.Raycast(rayPos, rayDir,0.5f))
+            Ray ray = new Ray(rayPos, Vector3.up);
+            if (Physics.SphereCast(ray, 0.8f, out hit, 1.0f))
             {
                 GameManager.Instance.gameOver();
                 Instantiate(DestroyEffect, gameObject.transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
+
+            //if (Physics.Raycast(rayPos, rayDir,0.5f))
+            //{
+            //}
         }
     }
 }
