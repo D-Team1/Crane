@@ -16,11 +16,13 @@ public class Result : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.playBGM(0);
+
         nextStageButton.GetComponent<Button>().onClick.AddListener(() => {
             GameManager.changeStage(GameManager.StageNum + 1);
         });
         stageSelectButton.GetComponent<Button>().onClick.AddListener(() => {
-            SceneManager.changeScene(SceneNames.StageSelect);
+            MySceneManager.changeScene(SceneNames.StageSelect);
         });
     }
 }

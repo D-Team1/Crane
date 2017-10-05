@@ -13,13 +13,9 @@ public class StorySceneManager : MonoBehaviour
     
     void Start()
     {
+        SoundManager.Instance.playBGM(0);
         backButton.GetComponent<Button>().onClick.AddListener(() => {
-            SceneManager.changeScene(SceneNames.Title);
+            MySceneManager.changeScene(SceneNames.Title);
         });
-    }
-
-    void Update()
-    {
-
     }
 }

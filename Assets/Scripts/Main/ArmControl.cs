@@ -87,19 +87,25 @@ public class ArmControl : MonoBehaviour {
         RaycastHit hit;
 
         var stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1)) {
+            SoundManager.Instance.playSE(2);
+        }
+        if (Input.GetKeyUp(KeyCode.Joystick1Button1)) {
+            SoundManager.Instance.playSE(2);
+        }
         if(InputManager.moveArm())
         {
             Debug.Log(stateInfo.normalizedTime);
             //var animationHash = stateInfo.shortNameHash;
             //GetComponent<Animator>().Play(animationHash, 0, 0);
-            GetComponent<Animator>().SetFloat("Speed", 2);
+            GetComponent<Animator>().SetFloat("Speed", 1);
         }
         else
         {
             stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
             //var animationHash = stateInfo.shortNameHash;
             //GetComponent<Animator>().Play(animationHash, 0, 1.4f);
-            GetComponent<Animator>().SetFloat("Speed", -2);
+            GetComponent<Animator>().SetFloat("Speed", -1);
         }
 
         stateInfo = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
