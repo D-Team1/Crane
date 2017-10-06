@@ -47,6 +47,14 @@ public class GameManager : MonoBehaviour
         get { return isDuringPose; }
     }
 
+    /// <summary>
+    /// ステージをクリア、もしくはゲームオーバになっているか
+    /// </summary>
+    bool isFinish = false;
+    public bool IsFinish {
+        get { return isFinish; }
+    }
+
     private void Awake()
     {
         if (Instance == null) {
@@ -114,6 +122,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameClear()
     {
+        if (isFinish) { return; }
+        isFinish = true;
+
         SoundManager.Instance.playBGM(1);
         if (!StageSelect.unlockStage(stageNum)) {
             Invoke("goToStageSelect", 1.5f);
@@ -127,6 +138,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameOver()
     {
+        if (isFinish) { return; }
+        isFinish = true;
+
         SoundManager.Instance.playBGM(2);
         gameOverImage.SetActive(true);
         Invoke("goToStageSelect", 1.5f);
