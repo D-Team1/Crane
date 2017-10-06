@@ -33,14 +33,25 @@ public class BurikiMove : MonoBehaviour
             transform.position += new Vector3(MoveSpeed, 0f, 0f);
         }
 
-        Vector3 ray = transform.position;
-        ray.y += 0.8f;
-        Vector3 rayDir = new Vector3(0, 1, 0);
-        Debug.DrawRay(ray, rayDir * 1);
+        Vector3 rightUpRayPos = transform.position;
+        Vector3 leftUpRayPos = transform.position;
+        rightUpRayPos.y += 0.4f;
+        rightUpRayPos.x += 0.2f;
+
+        leftUpRayPos.y += 0.4f;
+        leftUpRayPos.x -= 0.2f;
+        Debug.DrawRay(rightUpRayPos, Vector3.up * 0.8f);
+        Debug.DrawRay(leftUpRayPos, Vector3.up * 0.8f);
+
         //anim.SetFloat("speed");
     }
 
-
+    void OnDrawGizmos()
+    {
+        Vector3 ray = transform.position;
+        ray.y += 1.0f;
+        Gizmos.DrawWireSphere(ray, 0.23f);
+    }
 
     void OnCollisionEnter(Collision clear)
     {
@@ -52,24 +63,43 @@ public class BurikiMove : MonoBehaviour
         }
         else if (clear.gameObject.tag == "GameOver")
         {
+            SoundManager.Instance.playSE(3);
             GameManager.Instance.gameOver();
             Instantiate(DestroyEffect,gameObject.transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
         else if (clear.gameObject.tag == "BuildingBlocks")
         {
-            Vector3 rayPos = transform.position;
-            rayPos.y += 0.5f;
-            Ray ray = new Ray(rayPos, Vector3.up);
-            if (Physics.SphereCast(ray, 1.0f, out hit, 1.0f))
+            Vector3 rightUpRayPos = transform.position;
+            Vector3 leftUpRayPos = transform.position;
+
+            rightUpRayPos.y += 0.4f;
+            rightUpRayPos.x += 0.2f;
+
+            leftUpRayPos.y += 0.4f;
+            leftUpRayPos.x -= 0.2f;
+            Ray rightUpRay = new Ray(rightUpRayPos, Vector3.up);
+
+            if(Physics.Raycast(rightUpRayPos, Vector3.up, out hit, 1.0f) ||
+                Physics.Raycast(leftUpRayPos, Vector3.up, out hit, 1.0f))
             {
-                Debug.Log(hit.transform.tag);
-                if(hit.transform.tag == "BuildingBlocks")
+                //Debug.Log(hit.transform.tag);
+                if (hit.transform.tag == "BuildingBlocks")
                 {
                     GameManager.Instance.gameOver();
                     Instantiate(DestroyEffect, gameObject.transform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
+            }
+            //if (Physics.SphereCast(ray, 0.23f, out hit, 0.4f))
+            {
+                //Debug.Log(hit.transform.tag);
+                //if(hit.transform.tag == "BuildingBlocks")
+                //{
+                //    GameManager.Instance.gameOver();
+                //    Instantiate(DestroyEffect, gameObject.transform.position, Quaternion.identity);
+                //    Destroy(gameObject);
+                //}
             }
 
             //if (Physics.Raycast(rayPos, rayDir,0.5f))
