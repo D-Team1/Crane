@@ -16,6 +16,8 @@ public class ArmControl : MonoBehaviour {
 
     [SerializeField]
     List<int> m_MaxHpValues = new List<int>();
+    
+    Text m_HpText;
 
     bool isDeth; //TODO: 応急処置用
 
@@ -32,6 +34,8 @@ public class ArmControl : MonoBehaviour {
         m_HpBar.maxValue = m_MaxHpValues[GameManager.StageNum - 1];
         m_HpBar.value = m_HpBar.maxValue;
         m_CaughtTag = "";
+        m_HpText = GameObject.Find("HpText").GetComponent<Text>();
+        m_HpText.text = string.Format("{0:000} / {1}", m_HpBar.value, m_MaxHpValues[GameManager.StageNum - 1]);
 
         isDeth = false; //TODO: 応急処置用
     }
@@ -47,6 +51,8 @@ public class ArmControl : MonoBehaviour {
         {
             m_HpBar.value -= 25.0f / 60.0f;
         }
+
+        m_HpText.text = string.Format("{0:000} / {1:000}", m_HpBar.value, m_MaxHpValues[GameManager.StageNum - 1]);
 
         if (m_HpBar.value <= 0)
         {
