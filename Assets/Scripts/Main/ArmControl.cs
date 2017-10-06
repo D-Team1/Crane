@@ -17,6 +17,8 @@ public class ArmControl : MonoBehaviour {
     [SerializeField]
     List<int> m_MaxHpValues = new List<int>();
 
+    bool isDeth; //TODO: 応急処置用
+
     // Use this for initialization
     void Start ()
     {
@@ -30,6 +32,8 @@ public class ArmControl : MonoBehaviour {
         m_HpBar.maxValue = m_MaxHpValues[GameManager.StageNum - 1];
         m_HpBar.value = m_HpBar.maxValue;
         m_CaughtTag = "";
+
+        isDeth = false; //TODO: 応急処置用
     }
 	
 	// Update is called once per frame
@@ -46,7 +50,10 @@ public class ArmControl : MonoBehaviour {
 
         if (m_HpBar.value <= 0)
         {
-            GameManager.Instance.gameOver();
+            if (!isDeth) {
+                isDeth = true;
+                GameManager.Instance.gameOver();
+            }
         }
 
         if (GameManager.Instance.IsDuringPose) return;

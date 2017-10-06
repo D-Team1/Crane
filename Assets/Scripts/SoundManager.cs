@@ -46,10 +46,6 @@ public class SoundManager : MonoBehaviour
         sourceSE  = gameObject.AddComponent<AudioSource>();
     }
 
-    void Start()
-    {
-    }
-
     /// <summary>
     /// BGMの再生
     /// </summary>
@@ -75,6 +71,10 @@ public class SoundManager : MonoBehaviour
         sourceSE.PlayOneShot(seList[index]);
     }
 
+    /// <summary>
+    /// 前の音を消して
+    /// </summary>
+    /// <param name="index"></param>
     public void playSE(int index)
     {
         if (seList.Count <= index) { return; }
@@ -82,4 +82,6 @@ public class SoundManager : MonoBehaviour
         sourceSE.clip = seList[index];
         sourceSE.Play();
     }
+
+
 }
