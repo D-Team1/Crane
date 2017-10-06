@@ -114,12 +114,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameClear()
     {
-        SoundManager.Instance.playSE(4);
+        SoundManager.Instance.playBGM(1);
         if (!StageSelect.unlockStage(stageNum)) {
             Invoke("goToStageSelect", 1.5f);
             return;
         }
-        Invoke("goToResult", 1.0f);
+        Invoke("goToResult", 0.75f);
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void gameOver()
     {
-        SoundManager.Instance.playSE(3);
+        SoundManager.Instance.playBGM(2);
         gameOverImage.SetActive(true);
         Invoke("goToStageSelect", 1.5f);
     }
